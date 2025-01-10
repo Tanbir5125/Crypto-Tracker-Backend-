@@ -9,11 +9,16 @@ const scheduleCryptoJob = () =>{
             const cryptoData = await fetchCryptoData();
             for (const crypto of cryptoData) {
                 await Crypto.findOneAndUpdate(
-                    {sym}
+                    {symbol: crypto.symbol },
+                    crypto,
+                    { upsert: true, new: true }
                 )
             }
+            console.log("Cryptocurrency fetching job completed successfully!");
         } catch (error) {
-            
+            console.error("Error during scheduled job:", error.message);
         }
     })
 }
+
+export default scheduleCryptoJob;
