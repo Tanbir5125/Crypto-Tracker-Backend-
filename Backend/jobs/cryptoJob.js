@@ -1,6 +1,6 @@
 import cron from 'node-cron';
 import { fetchCryptoData } from '../services/coingecko.service.js'
-import { Crypto } from '../models/crypto.model.js';
+import {Crypto} from '../models/crypto.model.js';
 
 const scheduleCryptoJob = () =>{
     cron.schedule('0 */2 * * *', async () =>{

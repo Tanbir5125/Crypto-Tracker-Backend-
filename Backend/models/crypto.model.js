@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const crryptoSchema = new mongoose.Schema({
+const cryptoSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -29,4 +29,4 @@ const crryptoSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Crypto', cryptoSchema);
+export const Crypto = mongoose.model('Crypto', cryptoSchema);
