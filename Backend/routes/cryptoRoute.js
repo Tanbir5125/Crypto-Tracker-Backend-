@@ -1,9 +1,16 @@
-import express from 'express'
-import { getStats, getDeviation } from '../controllers/queryController.js'
+import express from 'express'; // Importing the Express library
+import { getStats, getDeviation } from '../controllers/queryController.js'; // Importing the controller functions
 
-const router = express.Router()
+// Create a new Express Router instance
+const router = express.Router();
 
-router.get('/stats', getStats)
-router.get('/deviation', getDeviation)
+// Route to fetch cryptocurrency statistics for a specific coin
+// This route calls the 'getStats' function from the queryController
+router.get('/stats', getStats);
 
-export default router
+// Route to fetch the standard deviation of the last 100 cryptocurrency prices
+// This route calls the 'getDeviation' function from the queryController
+router.get('/deviation', getDeviation);
+
+// Export the router so it can be used in other parts of the application
+export default router;
