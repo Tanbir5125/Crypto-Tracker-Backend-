@@ -3,12 +3,13 @@ import { ENV_VARS } from './config/envVars.js';
 import { connectDB } from './config/db.js';
 import scheduleCryptoJob from './jobs/cryptoJob.js';
 
+import statsRoute from './routes/stats.js'
 
 const app = express();
 
 const PORT = ENV_VARS.PORT
 
-// app.use("/api", statsRoute)
+app.use("/api", statsRoute)
 
 scheduleCryptoJob();
 
