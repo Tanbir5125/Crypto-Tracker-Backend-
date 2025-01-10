@@ -8,11 +8,7 @@ const scheduleCryptoJob = () =>{
         try {
             const cryptoData = await fetchCryptoData();
             for (const crypto of cryptoData) {
-                await Crypto.findOneAndUpdate(
-                    {symbol: crypto.symbol },
-                    crypto,
-                    { upsert: true, new: true }
-                )
+                await Crypto.create(crypto)
             }
             console.log("Cryptocurrency fetching job completed successfully!");
         } catch (error) {
